@@ -16,3 +16,5 @@ document.querySelector("#root").insertAdjacentHTML("beforeend", `
 
     <div>?</div>
 `)
+
+/* A 11-14. sor azért van külön div-ben, hogy meg tudjam oldani, hogy egymás mellé kerüljenek, és ne alá-fölé a flex miatt */

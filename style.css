@@ -1,3 +1,5 @@
+/* ------------ CSS RESET -------------- */
+
 * {
     margin: 0;
     padding: 0;
@@ -7,6 +9,7 @@
     font-family: inherit;
   }
   
+  /* ------------ A BODY ELEM TELJESEN KÖZÉPRE HELYEZÉSE AZ OLDALON -------------- */
   body {
     min-height: 100vh;
     display: flex;
@@ -14,58 +17,72 @@
     align-items: center;
   }
   
+
+
   form {
     max-width: 600px;
     background-color: rgb(244, 225, 203);
   
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
+    display: flex;            /* ------ ELEMEK EGYMÁS ALÁ A FORMBAN -------------- */
+    flex-direction: column;   /* ------ ELEMEK EGYM. ALÁ A FORMBAN */
+    gap: 20px;                /* ------ ELEMEK KÖZÖTTI ELTOLÁS -------------- */
   
-    padding: 20px;
+    padding: 20px;            /* ------ NE FALTÓL FALIG ÉRJEN: -------------- */
   
-    font-family: 'Montserrat', sans-serif;
+    font-family: 'Montserrat', sans-serif;  
   }
   
   h1 {
     font-size: 32px;
     font-weight: 700;
-    text-align: center;
+    text-align: center;  /* ------ KPre ZÁRJA A SZÖVEGET -------------- */
     color: rgb(77, 114, 77);
   }
   
+  /* ------ NE FALTÓL FALIG ÉRJEN A SZÖVEG, NO BORDER -------------- */
   input, textarea {
     padding: 20px;
     border: 0;
   }
   
+  /* ------ TEXTAREA MIN MAGASSÁGA -------------- */
   form textarea {
     min-height: 100px;
   }
   
+
+
   button {
     width: 200px;
   
     background-color: rgb(77, 114, 77);
     color: rgb(244, 225, 203);
   
-    letter-spacing: 0.2em;
+    letter-spacing: 0.2em; /* ------ A BETŰK KÖZÖTTI TÉRELTOLÁS -------------- */
     font-size: 24px;
   
     padding: 10px;
-    text-transform: uppercase;
+    text-transform: uppercase; /* ------ NAGYBETŰS -------------- */
   
     border: 0;
   
-    margin: 0 auto;
+    margin: 0 auto; /* ------ BUTTON KPR-RE HELYEZÉSE EGY SORBAN -------------- */
   }
   
-  ::placeholder {
+
+
+/* ------ :: PSZEUDÓ SELECTOR, AZ ÖSSZES PLACEHOLDER ELEMET MÓDOSÍTJUK EZZEL ----- 
+    ha pl. csak az inputnak módosítanám: input::placeholder {}
+    ha csak a textareanak: textarea::placeholder {}
+    
+    */
+  ::placeholder { 
     color: rgb(77, 114, 77);
     font-style: italic;
     font-family: 'Roboto', sans-serif;
   }
   
+  /* ------ A CHEKBOX ÉS SZÖVEGE EGYMÁS MELLÉ -------------- */
   form div {
     display: flex;
     flex-direction: row;
@@ -73,12 +90,16 @@
     color: rgb(77, 114, 77);
   }
   
+  
+  /* ------ A CHEKBOX MÉRETEZÉSE -------------- */
   form div input {
     width: 20px;
     height: 20px;
   }
   
-  #root > div {
+
+  /* ------ ? GOMB-------------- */
+  #root > div {  /* ------ KÖZVETLEN GYERMEK SZELEKTOR A > MIATT-------------- */
     width: 120px;
     height: 120px;
   
@@ -88,17 +109,24 @@
     font-size: 48px;
     font-family: 'Roboto', sans-serif;
   
-    border-radius: 50%;
+    border-radius: 50%;     /* ------ ELEM LEKEREKÍTÉSE-------------- */
+      
+    position: fixed;  /* ------ FIXÁLT -------------- */
+    bottom: 20px;     /* ------ A KÉPRENYŐ JOBB ALSÓ SARKÁBAN -------------- */
+    right: 20px;      /* ------  -||-  -------------- */
   
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-  
-    display: flex;
+    display: flex;      /* ------ A KP-RE RENDEZÉS SZENT3-SÁG-------------- */
     justify-content: center;
     align-items: center;
   }
+
+  /* ------ A kurzor VÁLTOZZON KÉZZÉ HA A CSEKBOX FÖLÉ MEGY -------------- */
+  #root > form > div > input[type=checkbox] {
+    cursor: pointer;
+  }
   
+
+  /* ------ HA A VIEWPORT MAX. SZÉLESSÉGE 480px, AKKOR A KÖV-RE VÁLTOZZON A h1 -------------- */
   @media only screen and (max-width: 480px) {
     h1 {
       font-size: 24px;
